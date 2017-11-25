@@ -11,10 +11,22 @@
   var timeLeft;
   var timeToCountDown = 4 * 1000;
 
+  function updateTimer(t) {
+    var d = new Date(t);
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+    var ms = d.getMilliseconds();
+
+    m = ('0' + m).slice(-2);
+    s = ('0' + s).slice(-2);
+    ms = ('00' + ms).slice(-3);
+    timer.textContent = m + ':' + s + '.' + ms;
+  }
+
   function countDown() {
     setTimeout(function() {
       timeLeft = timeToCountDown - (Date.now() - startTime);
-      console.log(timeLeft);
+      updateTimer(timeLeft);
       countDown();
     }, 10);
   }
