@@ -59,12 +59,28 @@
   });
 
   min.addEventListener('click', function() {
+    if (isRunning === true) {
+      return;
+    }
+
     timeToCountDown += 60 * 1000;
+    if (timeToCountDown >= 60 * 60 * 1000) {
+      timeToCountDown = 0;
+    }
+
     updateTimer(timeToCountDown);
   });
 
   sec.addEventListener('click', function() {
+    if (isRunning === true) {
+      return;
+    }
+
     timeToCountDown += 1000;
+    if (timeToCountDown >= 60 * 60 * 1000) {
+      timeToCountDown = 0;
+    }
+
     updateTimer(timeToCountDown);
   });
 
