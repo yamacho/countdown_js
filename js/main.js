@@ -18,11 +18,14 @@
     var m = d.getMinutes();
     var s = d.getSeconds();
     var ms = d.getMilliseconds();
+    var timeString;
 
     m = ('0' + m).slice(-2);
     s = ('0' + s).slice(-2);
     ms = ('00' + ms).slice(-3);
-    timer.textContent = m + ':' + s + '.' + ms;
+    timeString = m + ':' + s + '.' + ms;
+    timer.textContent = timeString;
+    document.title = timeString;
   }
 
   function countDown() {
